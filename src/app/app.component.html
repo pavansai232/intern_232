@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="cols-xs-12">
+            <h3 align="center"> i am pavan sai</h3>
+             <hr>
+            <app-servers></app-servers>
+           
+            <!--<div class="app-servers"></div>-->
+            <hr>
+            <app-success-alert></app-success-alert>
+            <app-warning-alert></app-warning-alert>
+            <label>username</label>
+            <input type="text" class="form-control" [(ngModel)]="username">
+            <p>{{ username }}</p>
+            <button class="btn btn-primary"
+             [disabled]=" username===''"
+             (click)="username=''">Reset user</button><br><br>
+             <!--<button type="btn btn-primary" (click)= "showSecret = !showSecret">Display details</button>-->
+             <button type="btn btn-primary" (click)="onToggledetails()">Display details</button>
+             <p *ngIf="showSecret">secret password = puma</p>
+             <div 
+             *ngFor="let logitem of log"
+             [ngStyle]="{backgroundColor: logitem >=5 ? 'blue' : 'transparent'}"
+             [ngClass]="{'white-text' : logitem >= 5}"
+             >{{logitem}}</div>
+        </div>
+    </div>
+</div>
